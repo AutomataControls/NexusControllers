@@ -22,12 +22,10 @@ pids
 *.seed
 *.pid.lock
 
-# Database files
-*.db
+# Database temporary/journal files only (keep the actual .db files)
 *.db-journal
 *.db-wal
 *.db-shm
-data/*.db
 data/archives/
 
 # Runtime result files that change during operation (not needed in repo)
