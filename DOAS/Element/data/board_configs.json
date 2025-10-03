@@ -1,0 +1,89 @@
+[
+  {
+    "boardType": "megabas",
+    "stackAddress": 0,
+    "enabled": true,
+    "outputs": {
+      "1": {
+        "name": "OA Damper/Supply Fan Enable (24VAC Triac)",
+        "type": "triac",
+        "enabled": true
+      },
+      "2": {
+        "name": "Heat Enable (24VAC Triac)",
+        "type": "triac",
+        "enabled": true
+      },
+      "3": {
+        "name": "Chiller Enable Stage 1 (24VAC Triac)",
+        "type": "triac",
+        "enabled": true
+      },
+      "4": {
+        "name": "Chiller Enable Stage 2 (24VAC Triac)",
+        "type": "triac",
+        "enabled": true
+      },
+      "5": {
+        "name": "Supply Fan VFD Speed (0-10V)",
+        "type": "0-10V",
+        "enabled": true
+      },
+      "6": {
+        "name": "Modulating Gas Valve (0-10V)",
+        "type": "0-10V",
+        "enabled": true
+      }
+    },
+    "inputs": {
+      "1": {
+        "name": "",
+        "inputType": "0-10V",
+        "conversionType": "temperature",
+        "enabled": false
+      },
+      "2": {
+        "name": "Space Temperature (10K NTC)",
+        "inputType": "10k",
+        "conversionType": "temperature",
+        "enabled": true
+      },
+      "3": {
+        "name": "",
+        "inputType": "0-10V",
+        "conversionType": "temperature",
+        "enabled": false
+      },
+      "4": {
+        "name": "Supply Air Temperature (10K NTC)",
+        "inputType": "10k",
+        "conversionType": "temperature",
+        "enabled": true
+      },
+      "5": {
+        "name": "",
+        "inputType": "0-10V",
+        "conversionType": "temperature",
+        "enabled": false
+      },
+      "6": {
+        "name": "",
+        "inputType": "0-10V",
+        "conversionType": "temperature",
+        "enabled": false
+      },
+      "7": {
+        "name": "",
+        "inputType": "0-10V",
+        "conversionType": "temperature",
+        "enabled": false
+      },
+      "8": {
+        "name": "",
+        "inputType": "0-10V",
+        "conversionType": "temperature",
+        "enabled": false
+      }
+    }
+  }
+]

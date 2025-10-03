@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Labs DOAS Control Logic - AutomataNexus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: white;
+            font-size: 12px;
+            color: #333;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 120px;
+            color: rgba(200, 200, 200, 0.03);
+            font-weight: bold;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border: 2px solid #00A8A8;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #00A8A8;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #00A8A8;
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .header h2 {
+            color: #333;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .header p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .section {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-left: 4px solid #00A8A8;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .section h3 {
+            color: #00A8A8;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .config-item {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .config-item h4 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .config-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .config-list li {
+            padding: 3px 0;
+            font-size: 11px;
+            color: #555;
+        }
+
+        .equipment-ids {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .equipment-ids h4 {
+            color: #00A8A8;
+            margin-top: 0;
+        }
+
+        .signature-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .signature {
+            text-align: left;
+        }
+
+        .signature-name {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: -8px;
+            transform: rotate(-1deg);
+            font-style: italic;
+        }
+
+        .signature-line {
+            border-top: 2px solid #333;
+            width: 200px;
+            margin: 0 0 4px 0;
+        }
+
+        .signature-title {
+            font-size: 12px;
+            line-height: 1.3;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="watermark">AUTOMATANEXUS 2025</div>
+
+    <div class="container">
+        <div class="header">
+            <h1>ELEMENT LABS DOAS CONTROL LOGIC</h1>
+            <h2>Dedicated Outdoor Air System - Intelligent Climate Control</h2>
+            <p>AutomataNexus - Element Labs Location</p>
+            <p>Version 1.0.0 | Date: October 3, 2025</p>
+        </div>
+
+        <div class="equipment-ids">
+            <h4>Equipment Identification</h4>
+            <ul class="config-list">
+                <li><strong>DOAS Unit:</strong> WBAuutoHnGUtAEc4w6SC</li>
+                <li><strong>Location:</strong> Element Labs</li>
+                <li><strong>Location ID:</strong> 8</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>System Configuration</h3>
+            <div class="config-grid">
+                <div class="config-item">
+                    <h4>Equipment Configuration</h4>
+                    <ul class="config-list">
+                        <li>OA Damper/Supply Fan (Triac 1)</li>
+                        <li>Heat Enable (Triac 2)</li>
+                        <li>Chiller Enable Stage 1 (Triac 3)</li>
+                        <li>Chiller Enable Stage 2 (Triac 4)</li>
+                        <li>Supply Fan VFD (0-10V)</li>
+                        <li>Modulating Gas Valve (0-10V)</li>
+                        <li>Supply Air Temperature Sensor</li>
+                    </ul>
+                </div>
+                <div class="config-item">
+                    <h4>Control Parameters</h4>
+                    <ul class="config-list">
+                        <li><strong>Default Setpoint:</strong> 68.0°F</li>
+                        <li><strong>Heating Threshold:</strong> 65.0°F OAT</li>
+                        <li><strong>Cooling Threshold:</strong> 65.5°F OAT</li>
+                        <li><strong>Occupied Hours:</strong> 07:00-21:45</li>
+                        <li><strong>Freeze Protection:</strong> 40°F (5 min delay)</li>
+                        <li><strong>High Temp Limit:</strong> 85.0°F</li>
+                        <li><strong>Low Temp Limit:</strong> 45.0°F</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Operating Modes</h3>
+            <div class="config-grid">
+                <div class="config-item">
+                    <h4>Heating Mode (OAT < 65°F)</h4>
+                    <ul class="config-list">
+                        <li>Modulating gas valve control</li>
+                        <li>Gas valve range: 0-100%</li>
+                        <li>Low fire minimum: 26% (1.25V)</li>
+                        <li>Heating lockout: 70°F OAT</li>
+                        <li>Proportional control: 10% per °F error</li>
+                    </ul>
+                </div>
+                <div class="config-item">
+                    <h4>Cooling Mode (OAT ≥ 65.5°F)</h4>
+                    <ul class="config-list">
+                        <li>Stage 1: Supply temp > Setpoint + 2°F</li>
+                        <li>Stage 2: Supply temp > Setpoint + 4°F</li>
+                        <li>Cooling lockout: 50°F OAT</li>
+                        <li>DX failover: 5 min (cooling), 1 min (dehum)</li>
+                        <li>Required temp drop: 5°F for proven operation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Dehumidification Control</h3>
+            <div class="config-grid">
+                <div class="config-item">
+                    <h4>Entry Conditions</h4>
+                    <ul class="config-list">
+                        <li>OAT > 55°F (minimum threshold)</li>
+                        <li>Outdoor RH > 85% (high threshold)</li>
+                        <li>Indoor/Lab RH > 55% (high threshold)</li>
+                        <li>Space temp within 3°F of setpoint</li>
+                    </ul>
+                </div>
+                <div class="config-item">
+                    <h4>Exit Conditions (with hysteresis)</h4>
+                    <ul class="config-list">
+                        <li>OAT ≤ 55°F</li>
+                        <li>Outdoor RH < 83% (low threshold)</li>
+                        <li>Indoor/Lab RH < 53% (low threshold)</li>
+                        <li>Cooling system failure (both stages)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="config-item" style="margin-top: 15px;">
+                <h4>Dehumidification Operation Sequence</h4>
+                <ul class="config-list">
+                    <li><strong>Phase 1:</strong> Test Stage 1 cooling effectiveness (1 min)</li>
+                    <li><strong>Phase 2:</strong> If Stage 1 effective (5°F drop), add heating</li>
+                    <li><strong>Failover:</strong> If Stage 1 fails, test Stage 2 (1 min)</li>
+                    <li><strong>Exit:</strong> If both stages fail, exit dehumidification mode</li>
+                    <li><strong>Safety:</strong> Heating only added after cooling proven effective</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Control Function Overview</h3>
+            <p><strong>doasControl(metricsInput, settingsInput, currentTempArgument, stateStorageInput)</strong></p>
+            <p>The main control function processes incoming sensor data and generates control commands for the DOAS unit
+                with proper mode switching, occupancy control, and safety interlocks.</p>
+
+            <div class="config-grid">
+                <div class="config-item">
+                    <h4>Input Parameters</h4>
+                    <ul class="config-list">
+                        <li><strong>metricsInput:</strong> Sensor data (temps, humidity, etc.)</li>
+                        <li><strong>settingsInput:</strong> Equipment/location ID, setpoints</li>
+                        <li><strong>currentTempArgument:</strong> Current supply temperature</li>
+                        <li><strong>stateStorageInput:</strong> State persistence for timers</li>
+                    </ul>
+                </div>
+                <div class="config-item">
+                    <h4>Control Outputs</h4>
+                    <ul class="config-list">
+                        <li>Fan enable/disable</li>
+                        <li>Heating enable/disable</li>
+                        <li>Gas valve position (0-100%)</li>
+                        <li>Cooling enable/disable</li>
+                        <li>DX Stage 1/2 enable</li>
+                        <li>Outdoor damper position</li>
+                        <li>System status and alarms</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Safety and Monitoring Features</h3>
+            <div class="config-grid">
+                <div class="config-item">
+                    <h4>Safety Monitoring</h4>
+                    <ul class="config-list">
+                        <li>High temperature limit (85°F) - Emergency shutdown</li>
+                        <li>Low temperature limit (45°F) - Emergency shutdown</li>
+                        <li>Freeze protection (40°F, 5 min delay)</li>
+                        <li>Heating lockout (70°F OAT)</li>
+                        <li>Cooling lockout (50°F OAT)</li>
+                        <li>Space temperature tolerance (±3°F in dehum mode)</li>
+                    </ul>
+                </div>
+                <div class="config-item">
+                    <h4>Operational Features</h4>
+                    <ul class="config-list">
+                        <li>Occupancy scheduling (07:00-21:45)</li>
+                        <li>Occupancy bypass option (always occupied)</li>
+                        <li>OA damper freeze protection</li>
+                        <li>Automatic mode switching (heating/cooling/dehum)</li>
+                        <li>DX runtime tracking for maintenance</li>
+                        <li>State persistence via file storage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>I/O Channel Mapping</h3>
+            <div class="config-grid">
+                <div class="config-item">
+                    <h4>Digital Outputs (Triacs)</h4>
+                    <ul class="config-list">
+                        <li><strong>CH1:</strong> OA Damper/Supply Fan Enable</li>
+                        <li><strong>CH2:</strong> Heat Enable</li>
+                        <li><strong>CH3:</strong> Chiller Enable (Stage 1)</li>
+                        <li><strong>CH4:</strong> Chiller Enable (Stage 2)</li>
+                    </ul>
+                </div>
+                <div class="config-item">
+                    <h4>Analog Outputs & Inputs</h4>
+                    <ul class="config-list">
+                        <li><strong>CH5 (AO1):</strong> Supply Fan VFD Speed (0-10V)</li>
+                        <li><strong>CH6 (AO2):</strong> Modulating Gas Valve (0-10V)</li>
+                        <li><strong>CH12 (AI4):</strong> Supply Air Temperature</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="signature-section">
+            <div class="signature">
+                <div class="signature-name">Andrew G. Jewell Sr.</div>
+                <div class="signature-line"></div>
+                <div class="signature-title">
+                    Andrew G. Jewell Sr.<br>
+                    Founder & AI Systems Engineer<br>
+                    Date: October 3, 2025
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

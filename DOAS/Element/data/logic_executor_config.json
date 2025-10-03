@@ -1,0 +1,11 @@
+{
+  "equipmentId": "WBAuutoHnGUtAEc4w6SC",
+  "allEquipmentIds": [
+    "WBAuutoHnGUtAEc4w6SC"
+  ],
+  "enabled": true,
+  "autoRunEnabled": true,
+  "pollingInterval": 7,
+  "logicFilePath": "/home/Automata/remote-access-portal/logic/equipment/WBAuutoHnGUtAEc4w6SC.js",
+  "updatedAt": "2025-10-03T16:01:38.051Z"
+}

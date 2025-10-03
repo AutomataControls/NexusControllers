@@ -1,0 +1,17 @@
+{
+  "equipmentId": "WBAuutoHnGUtAEc4w6SC",
+  "primaryEquipmentId": "WBAuutoHnGUtAEc4w6SC",
+  "allEquipmentIds": [
+    "WBAuutoHnGUtAEc4w6SC"
+  ],
+  "enabled": true,
+  "autoRunEnabled": true,
+  "pollingInterval": 7,
+  "uploadedAt": "2025-10-03T16:01:38.050Z",
+  "uploadedBy": "api-user",
+  "temperatureSetpoint": 72,
+  "occupancySchedule": {
+    "start": "05:30",
+    "end": "20:30"
+  }
+}
